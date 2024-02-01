@@ -3,6 +3,7 @@
 /**
  * binary_tree_height - height of a binary tree
  * @tree: root node of the binary tree
+ * Return: height of the binary tree or 0 if it's empty
  */
 
 size_t binary_tree_height(const binary_tree_t *tree)
