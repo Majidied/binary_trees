@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include "binary_trees.h"
 
+/* Our own functions */
+void binary_tree_print(const binary_tree_t *tree);
+void _binary_tree_delete(binary_tree_t *tree);
+
 /**
  * main - Entry point
  *
@@ -9,21 +13,15 @@
  */
 int main(void)
 {
-    binary_tree_t *root;
-    size_t height;
+	binary_tree_t root;
 
-    root = binary_tree_node(NULL, 98);
-    root->left = binary_tree_node(root, 12);
-    root->right = binary_tree_node(root, 402);
-    binary_tree_insert_right(root->left, 54);
-    binary_tree_insert_right(root, 128);
-    binary_tree_print(root);
+	root.n = 98;
+	root.parent = NULL;
+	root.left = NULL;
+	root.right = NULL;
+	binary_tree_insert_right(&root, 54);
 
-    height = binary_tree_height(root);
-    printf("Height from %d: %lu\n", root->n, height);
-    height = binary_tree_height(root->right);
-    printf("Height from %d: %lu\n", root->right->n, height);
-    height = binary_tree_height(root->left->right);
-    printf("Height from %d: %lu\n", root->left->right->n, height);
-    return (0);
+	binary_tree_print(&root);
+	binary_tree_delete(root.right);
+	return (0);
 }
