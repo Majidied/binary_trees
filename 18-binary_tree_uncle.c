@@ -6,7 +6,7 @@
  * Return: the sibling of the given node, NULL if it doesn't have one.
  */
 
-binary_tree_t *binary_tree_sibling(binary_tree_t *node)
+binary_tree_t *binary_tree_sibling1(binary_tree_t *node)
 {
 	if (node == NULL || node->parent == NULL)
 		return (NULL);
@@ -25,5 +25,5 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
     if (node == NULL || node->parent == NULL)
         return (NULL);
-    return (binary_tree_sibling(node->parent));
+    return (binary_tree_sibling1(node->parent));
 }
